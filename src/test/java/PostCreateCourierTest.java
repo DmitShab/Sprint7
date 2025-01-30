@@ -6,11 +6,22 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertEquals;
 
 public class PostCreateCourierTest {
+
     PostCreateCourierSteps postCreateCourierSteps = new PostCreateCourierSteps();
+
     @Test
     @DisplayName("Создание курьера")
     public void postCrateCourierTest() {
         postCreateCourierSteps.createCourier();
-        postCreateCourierSteps.checkResponseBody();
+        postCreateCourierSteps.checkResponseBodyPos();
     }
+
+    @Test
+    @DisplayName("Содание двух одинаковых курьеров")
+    public void postCreateTwoSameCouriers() {
+        postCreateCourierSteps.createCourier();
+        postCreateCourierSteps.createCourier();
+        postCreateCourierSteps.checkResponseBodyNeg();
+    }
+
 }
