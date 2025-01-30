@@ -13,15 +13,16 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class CreateCourierTest {
-    String login = "Jnasdasdas";
-    String password  = "12sd!sad!";
+    String login = "Jnasdaьmсdпsdas";
+    String password = "12dsd!sad!";
     String firstName = "Billiesha";
+
     @Before
     public void setUp() {
         RestAssured.baseURI = "https://qa-scooter.praktikum-services.ru/";
-        public void checkIfUserExistsIfTrueThenDelete () {
-
-        }
+//        public void checkIfUserExistsIfTrueThenDelete() {
+//
+//        }
     }
 
     @Test
@@ -29,8 +30,7 @@ public class CreateCourierTest {
     public void createCourierMethod() {
         Response response = sendPostToCreateCourier();
         response.then().statusCode(201)
-                .and().assertThat(response.isOk(), is(equalTo(true)));
-
+                .assertThat().body("ok", equalTo(true));
     }
 
     @Test
@@ -53,6 +53,6 @@ public class CreateCourierTest {
                 .post("api/v1/courier");
         return response;
     }
-    @Step("POST")
 
+//    @Step("POST")
 }

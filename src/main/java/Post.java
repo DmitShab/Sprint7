@@ -1,16 +1,15 @@
-package POJO;
-
-public class CreateCourierPOJO {
+public class Post {
     private String login;
     private String password;
     private String firstName;
 
-    public CreateCourierPOJO(String login, String password, String firstName) {
+    public Post(String login, String password, String firstName) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
     }
-    public CreateCourierPOJO(){
+
+    public Post() {
 
     }
 
