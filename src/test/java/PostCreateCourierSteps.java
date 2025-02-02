@@ -7,7 +7,7 @@ public class PostCreateCourierSteps {
     private PostApi postApi = new PostApi();
     private Response response;
 
-    @Step("Создание курьера")
+    @Step("Создание курьераб без обязательных полей")
     public Response createCourier(String login, String password, String firstName) {
         Post post = new Post(login, password, firstName);
         response = postApi.createCourier(post);
@@ -15,7 +15,7 @@ public class PostCreateCourierSteps {
     }
     @Step("Создание курьера")
     public Response createCourier() {
-        Post post = new Post("sdfsd6vjkbnmlcvbjk8f", "dafsdf123", "asd123sd");
+        Post post = new Post("sdfsd6vjkbапnmlcvbjk8f", "dafsdf123", "asd123sd");
         response = postApi.createCourier(post);
         return response;
     }
