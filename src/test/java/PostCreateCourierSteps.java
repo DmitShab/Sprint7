@@ -5,11 +5,11 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class PostCreateCourierSteps {
     private PostApiCreate postApi = new PostApiCreate();
-    private TestData testData = new TestData();
     private Response response;
+    static PostCreatePOJO post;
 
     //Шаг для параметризированного теста
-    @Step("Создание курьераб без обязательных полей")
+    @Step("Создание курьера без обязательных полей")
     public Response createCourier(String login, String password, String firstName) {
         PostCreatePOJO post = new PostCreatePOJO(login, password, firstName);
         response = postApi.createCourier(post);
@@ -17,7 +17,7 @@ public class PostCreateCourierSteps {
     }
     @Step("Создание курьера")
     public Response createCourier() {
-        PostCreatePOJO post = new PostCreatePOJO(testData.generateRandomString(10), testData.generateRandomString(10), testData.generateRandomString(10));
+        post = new PostCreatePOJO(TestData.generateRandomString(10), TestData.generateRandomString(10), TestData.generateRandomString(10));
         response = postApi.createCourier(post);
         return response;
     }
