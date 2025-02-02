@@ -1,9 +1,9 @@
 import io.restassured.response.Response;
 
-public class PostApi extends BaseHttpClient {
+public class PostApiCreate extends BaseHttpClient {
     private final String path = "api/v1/courier";
 
-    public Response createCourier(Post body) {
+    public Response createCourier(PostCreatePOJO body) {
         return doPostRequest(path, body);
     }
 }

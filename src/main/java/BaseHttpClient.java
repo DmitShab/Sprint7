@@ -5,6 +5,9 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
+import java.lang.reflect.Parameter;
+import java.util.Map;
+
 import static io.restassured.RestAssured.given;
 
 public abstract class BaseHttpClient {
@@ -30,6 +33,12 @@ public abstract class BaseHttpClient {
         return given()
                 .spec(baseRequestSpec)
                 .get(path)
+                .thenReturn();
+    }
+    protected Response doDeleteRequest(String path){
+        return given()
+                .spec(baseRequestSpec)
+                .delete(path)
                 .thenReturn();
     }
 }

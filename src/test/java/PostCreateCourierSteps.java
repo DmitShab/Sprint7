@@ -4,18 +4,20 @@ import io.restassured.response.Response;
 import static org.hamcrest.CoreMatchers.equalTo;
 
 public class PostCreateCourierSteps {
-    private PostApi postApi = new PostApi();
+    private PostApiCreate postApi = new PostApiCreate();
+    private TestData testData = new TestData();
     private Response response;
 
+    //Шаг для параметризированного теста
     @Step("Создание курьераб без обязательных полей")
     public Response createCourier(String login, String password, String firstName) {
-        Post post = new Post(login, password, firstName);
+        PostCreatePOJO post = new PostCreatePOJO(login, password, firstName);
         response = postApi.createCourier(post);
         return response;
     }
     @Step("Создание курьера")
     public Response createCourier() {
-        Post post = new Post("sdfsd6vjkbапnmlcvbjk8f", "dafsdf123", "asd123sd");
+        PostCreatePOJO post = new PostCreatePOJO(testData.generateRandomString(10), testData.generateRandomString(10), testData.generateRandomString(10));
         response = postApi.createCourier(post);
         return response;
     }
