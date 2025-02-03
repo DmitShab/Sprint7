@@ -15,6 +15,7 @@ public class PostCreateCourierSteps {
         response = postApi.createCourier(post);
         return response;
     }
+
     @Step("Создание курьера")
     public Response createCourier() {
         post = new PostCreatePOJO(TestData.generateRandomString(10), TestData.generateRandomString(10), TestData.generateRandomString(10));
@@ -27,16 +28,18 @@ public class PostCreateCourierSteps {
         response.then()
                 .assertThat().body("ok", equalTo(true)).statusCode(201);
     }
+
     @Step("Проверили создание двух одинаковых курьеров")
-    public void checkResponseBodyNeg(){
+    public void checkResponseBodyNeg() {
         response.then().statusCode(409)
                 .and()
                 .assertThat().body("message", equalTo("Этот логин уже используется"));
     }
-@Step("Создание курьера без обязательных полей")
-    public void checkResponseNoRequiredFields(){
-    response.then().statusCode(400)
-            .and()
-            .assertThat().body("message", equalTo("Недостаточно данных для создания учетной записи"));
-}
+
+    @Step("Создание курьера без обязательных полей")
+    public void checkResponseNoRequiredFields() {
+        response.then().statusCode(400)
+                .and()
+                .assertThat().body("message", equalTo("Недостаточно данных для создания учетной записи"));
+    }
 }

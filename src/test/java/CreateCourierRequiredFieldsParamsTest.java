@@ -6,16 +6,17 @@ import org.junit.runners.Parameterized;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(Parameterized.class)
-public class RequiredFieldsParamsTest {
+public class CreateCourierRequiredFieldsParamsTest {
 
     PostCreateCourierSteps postCreateCourierSteps = new PostCreateCourierSteps();
+
 
     private final String login;
     private final String password;
     private final String firstName;
 
 
-    public RequiredFieldsParamsTest(String login, String password, String firstName) {
+    public CreateCourierRequiredFieldsParamsTest(String login, String password, String firstName) {
         this.login = login;
         this.password = password;
         this.firstName = firstName;
@@ -24,8 +25,8 @@ public class RequiredFieldsParamsTest {
     @Parameterized.Parameters
     public static Object[][] getData() {
         return new Object[][]{
-                {"", "dsfsdf2131", "dsfsdf2131"},
-                {"dsfsdf2131", "", "dsfsdf2131"},
+                {"", TestData.generateRandomString(10), TestData.generateRandomString(10)},
+                {TestData.generateRandomString(10), "", TestData.generateRandomString(10)},
         };
     }
 
