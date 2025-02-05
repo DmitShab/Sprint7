@@ -22,6 +22,12 @@ public class PostCreateCourierSteps {
         response = postApi.createCourier(post);
         return response;
     }
+    @Step("Создание курьера дублера")
+    public Response createCourierDouble() {
+        post = new PostCreatePOJO(post.getLogin(),post.getPassword() , post.getFirstName());
+        response = postApi.createCourier(post);
+        return response;
+    }
 
     @Step("Провалидировали код-статус и тело ответа при успешном запросе")
     public void checkResponseBodyPos() {

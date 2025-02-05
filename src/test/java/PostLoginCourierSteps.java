@@ -8,6 +8,7 @@ public class PostLoginCourierSteps {
     PostApiLogin postApiLogin = new PostApiLogin();
     Response response;
 
+
     @Step("Логин существующего курьера")
     public Response loginCourier() {
         PostLogInPOJO postLogInPOJO = new PostLogInPOJO(PostCreateCourierSteps.post.getLogin(), PostCreateCourierSteps.post.getPassword());

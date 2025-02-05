@@ -1,4 +1,7 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 //Генерация тестовых данных
 public class TestData {
@@ -14,15 +17,28 @@ public class TestData {
 
         return result.toString();
     }
-    public static long generateRandomNumber(int length) {
+    public static Integer generateRandomNumber(int length) {
         Random random = new Random(); // Создаем объект Random для генерации случайных чисел
         StringBuilder number = new StringBuilder(); // Используем StringBuilder для построения строки
 
         // Цикл для заполнения числа случайными цифрами
         for (int i = 0; i < length; i++) {
-            number.append(random.nextInt(10)); // Генерируем случайную цифру от 0 до 9 и добавляем ее к строке
+            number.append(random.nextInt(9)); // Генерируем случайную цифру от 0 до 9 и добавляем ее к строке
         }
 
-        return Long.parseLong(number.toString()); // Преобразуем строку в long и возвращаем
+        return Integer.parseInt(number.toString()); // Преобразуем строку в long и возвращаем
     }
-}
+        public static String generateRandomDate() {
+            LocalDate today = LocalDate.now();
+            LocalDate endDate = today.plusYears(10); // Например, до 10 лет вперёд
+
+            long startEpochDay = today.toEpochDay();
+            long endEpochDay = endDate.toEpochDay();
+
+            long randomEpochDay = ThreadLocalRandom.current().longs(startEpochDay, endEpochDay).findAny().getAsLong();
+            LocalDate randomDate = LocalDate.ofEpochDay(randomEpochDay);
+
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            return randomDate.format(formatter);
+        }
+    }

@@ -1,10 +1,17 @@
 import io.qameta.allure.junit4.DisplayName;
 import io.restassured.response.Response;
+import org.junit.After;
 import org.junit.Test;
 
 public class PostLoginTest {
     PostCreateCourierSteps postCreateCourierSteps = new PostCreateCourierSteps();
     PostLoginCourierSteps postLoginCourierSteps = new PostLoginCourierSteps();
+    DeleteCourierSteps deleteCourierSteps = new DeleteCourierSteps();
+
+    @After
+    public void deleteTestUsers() {
+        deleteCourierSteps.deleteCourier();
+    }
 
     @Test
     @DisplayName("Авторизация существующего курьера")
