@@ -5,7 +5,6 @@ import org.junit.runners.Parameterized;
 
 import java.util.List;
 
-import static jdk.dynalink.linker.support.Guards.isNotNull;
 import static org.hamcrest.CoreMatchers.notNullValue;
 
 @RunWith(Parameterized.class)

@@ -1,4 +1,5 @@
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -7,8 +8,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(Parameterized.class)
 public class CreateCourierRequiredFieldsParamsTest {
+    @After
+    public void deleteTestUsers() {
+        deleteCourierSteps.deleteCourier();
+    }
 
     PostCreateCourierSteps postCreateCourierSteps = new PostCreateCourierSteps();
+    DeleteCourierSteps deleteCourierSteps = new DeleteCourierSteps();
 
 
     private final String login;
@@ -24,10 +30,7 @@ public class CreateCourierRequiredFieldsParamsTest {
 
     @Parameterized.Parameters
     public static Object[][] getData() {
-        return new Object[][]{
-                {"", TestData.generateRandomString(10), TestData.generateRandomString(10)},
-                {TestData.generateRandomString(10), "", TestData.generateRandomString(10)},
-        };
+        return new Object[][]{{"", TestData.generateRandomString(10), TestData.generateRandomString(10)}, {TestData.generateRandomString(10), "", TestData.generateRandomString(10)},};
     }
 
     @Test

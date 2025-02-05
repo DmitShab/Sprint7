@@ -6,4 +6,7 @@ public class DeleteApiCourier extends BaseHttpClient {
     public Response deleteCourier(Integer id) {
         return doDeleteRequest(path + id);
     }
+    public Response deleteCourierNoId() {
+        return doDeleteRequest(path);
+    }
 }

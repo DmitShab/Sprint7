@@ -1,13 +1,25 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 
 public class DeleteCourierTest {
     DeleteCourierSteps deleteCourierSteps = new DeleteCourierSteps();
     PostCreateCourierSteps postCreateCourierSteps = new PostCreateCourierSteps();
-    PostLoginCourierSteps postLoginCourierSteps = new PostLoginCourierSteps();
+
     @Test
-    public void deleteCourier(){
+    @DisplayName("Проверка удаления курьера при валидном запросе")
+    public void deleteCourier() {
         postCreateCourierSteps.createCourier();
-        postLoginCourierSteps.loginCourier();
         deleteCourierSteps.deleteCourier();
+    }
+
+    @Test
+    @DisplayName("Проверка удаления, не передав id")
+    public void deleteCourierNoId() {
+        deleteCourierSteps.deleteCourierNoId();
+    }
+    @Test
+    @DisplayName("Проверка удаления, передав несуществующий id")
+    public void deleteCourierWrongId(){
+        deleteCourierSteps.deleteCourierWrongId();
     }
 }
