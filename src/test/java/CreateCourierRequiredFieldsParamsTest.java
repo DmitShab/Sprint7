@@ -8,14 +8,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 @RunWith(Parameterized.class)
 public class CreateCourierRequiredFieldsParamsTest {
-    @After
-    public void deleteTestUsers() {
-        deleteCourierSteps.deleteCourier();
-    }
+
 
     PostCreateCourierSteps postCreateCourierSteps = new PostCreateCourierSteps();
-    DeleteCourierSteps deleteCourierSteps = new DeleteCourierSteps();
-
 
     private final String login;
     private final String password;

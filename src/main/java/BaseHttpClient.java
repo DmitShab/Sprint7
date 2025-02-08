@@ -5,7 +5,6 @@ import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
-import java.lang.reflect.Parameter;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
@@ -29,9 +28,10 @@ public abstract class BaseHttpClient {
 
     }
 
-    protected Response doGetResponse(String path) {
+    protected Response doGetRequest(String path, Map<String, Integer> params) {
         return given()
                 .spec(baseRequestSpec)
+                .params(params)
                 .get(path)
                 .thenReturn();
     }
@@ -41,4 +41,16 @@ public abstract class BaseHttpClient {
                 .delete(path)
                 .thenReturn();
     }
+    protected Response doPutRequest(String path, Map<String, String> params){
+        return given()
+                .spec(baseRequestSpec)
+                .params(params)
+                .put(path)
+                .thenReturn();
+    }
+//    protected Response doPostRequest(){
+//        return given()
+//                .spec(baseRequestSpec)
+//                .body
+//    }
 }
