@@ -8,7 +8,7 @@ import static org.hamcrest.CoreMatchers.equalTo;
 
 public class GetOrderByTrackSteps {
     GetApiGetOrder getApiGetOrder = new GetApiGetOrder();
-    Response response;
+    static Response response;
 
     @Step("Получение номера по track")
     public Response getOrderByTrack(Integer track) {

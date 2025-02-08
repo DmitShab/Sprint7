@@ -6,7 +6,7 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 
 public class PostLoginCourierSteps {
     PostApiLogin postApiLogin = new PostApiLogin();
-    Response response;
+    static Response response;
 
 
     @Step("Логин существующего курьера")

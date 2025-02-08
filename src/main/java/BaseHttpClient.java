@@ -41,7 +41,7 @@ public abstract class BaseHttpClient {
                 .delete(path)
                 .thenReturn();
     }
-    protected Response doPutRequest(String path, Map<String, String> params){
+    protected Response doPutRequest(String path, Map<String, Integer> params){
         return given()
                 .spec(baseRequestSpec)
                 .params(params)
