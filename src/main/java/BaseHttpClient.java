@@ -35,22 +35,25 @@ public abstract class BaseHttpClient {
                 .get(path)
                 .thenReturn();
     }
-    protected Response doDeleteRequest(String path){
+
+    protected Response doDeleteRequest(String path) {
         return given()
                 .spec(baseRequestSpec)
                 .delete(path)
                 .thenReturn();
     }
-    protected Response doPutRequest(String path, Map<String, Integer> params){
+
+    protected Response doPutRequest(String path, Map<String, Integer> params) {
         return given()
                 .spec(baseRequestSpec)
                 .params(params)
                 .put(path)
                 .thenReturn();
     }
-//    protected Response doPostRequest(){
-//        return given()
-//                .spec(baseRequestSpec)
-//                .body
-//    }
+    protected Response doPutRequestWithoutCourierId(String path, String pathForParam) {
+        return given()
+                .spec(baseRequestSpec)
+                .put(path+pathForParam)
+                .thenReturn();
+    }
 }
