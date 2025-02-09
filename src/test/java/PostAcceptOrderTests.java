@@ -1,4 +1,5 @@
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Test;
 
 public class PostAcceptOrderTests {
@@ -7,6 +8,12 @@ public class PostAcceptOrderTests {
     PostMakeOrderSteps postMakeOrderSteps = new PostMakeOrderSteps();
     GetOrderByTrackSteps getOrderByTrackSteps = new GetOrderByTrackSteps();
     PutAcceptOrderSteps putAcceptOrderSteps = new PutAcceptOrderSteps();
+    DeleteCourierSteps deleteCourierSteps = new DeleteCourierSteps();
+
+    @After
+    public void deleteTestUsers() {
+        deleteCourierSteps.deleteCourier();
+    }
 
     @Test
     @DisplayName("Принятие заказа")
@@ -29,6 +36,7 @@ public class PostAcceptOrderTests {
         putAcceptOrderSteps.acceptOrderNoCourierId();
         putAcceptOrderSteps.acceptOrderResponseValidationNoCourierId();
     }
+
     @Test
     @DisplayName("Принятие заказа, передав id несуществующего курьера")
     public void acceptOrderNonexistentCourierId() {
@@ -39,6 +47,7 @@ public class PostAcceptOrderTests {
         putAcceptOrderSteps.acceptOrderNonexistentCourierId();
         putAcceptOrderSteps.acceptOrderResponseValidationNonexistentCourierId();
     }
+
     @Test
     @DisplayName("Принятие заказа, не передав id заказа")
     public void acceptOrderNoOrderId() {
@@ -49,6 +58,7 @@ public class PostAcceptOrderTests {
         putAcceptOrderSteps.acceptOrderNoOrderId();
         putAcceptOrderSteps.acceptOrderResponseValidationNoOrderId();
     }
+
     @Test
     @DisplayName("Принятие заказа, передав id несуществующего курьера")
     public void acceptOrderNonexistentOrderId() {
@@ -59,6 +69,7 @@ public class PostAcceptOrderTests {
         putAcceptOrderSteps.acceptOrderNonexistentOrderId();
         putAcceptOrderSteps.acceptOrderResponseValidationNonexistentOrderId();
     }
+
     @Test
     @DisplayName("Принятие заказа")
     public void acceptOrderTwice() {

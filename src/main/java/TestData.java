@@ -17,20 +17,22 @@ public class TestData {
 
         return result.toString();
     }
+    //генерация рандомной стринги
     public static Integer generateRandomNumber(int length) {
-        Random random = new Random(); // Создаем объект Random для генерации случайных чисел
-        StringBuilder number = new StringBuilder(); // Используем StringBuilder для построения строки
+        Random random = new Random();
+        StringBuilder number = new StringBuilder();
 
-        // Цикл для заполнения числа случайными цифрами
+
         for (int i = 0; i < length; i++) {
-            number.append(random.nextInt(9)); // Генерируем случайную цифру от 0 до 9 и добавляем ее к строке
+            number.append(random.nextInt(9));
         }
 
-        return Integer.parseInt(number.toString()); // Преобразуем строку в long и возвращаем
+        return Integer.parseInt(number.toString());
     }
+    //Генерация рандомного числа
         public static String generateRandomDate() {
             LocalDate today = LocalDate.now();
-            LocalDate endDate = today.plusYears(10); // Например, до 10 лет вперёд
+            LocalDate endDate = today.plusYears(10);
 
             long startEpochDay = today.toEpochDay();
             long endEpochDay = endDate.toEpochDay();

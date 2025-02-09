@@ -12,4 +12,19 @@ public class GetOrderByTrackTest {
         getOrderByTrackSteps.getOrderByTrack(track);
         getOrderByTrackSteps.validateResponse(track);
     }
+
+    @Test
+    @DisplayName("Получение заказа не передав track")
+    public void getOrderNoTrack() {
+        postMakeOrderSteps.makeOrderStep();
+        getOrderByTrackSteps.getOrderNoTrack();
+        getOrderByTrackSteps.validateResponseNoTrack();
+    }
+    @Test
+    @DisplayName("Получение заказа, передав несуществующий track")
+    public void getOrderNonexistent() {
+        postMakeOrderSteps.makeOrderStep();
+        getOrderByTrackSteps.getOrderByNonexistentTrack();
+        getOrderByTrackSteps.validateResponseNonexistentTrack();
+    }
 }
