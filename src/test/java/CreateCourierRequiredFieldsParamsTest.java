@@ -25,7 +25,10 @@ public class CreateCourierRequiredFieldsParamsTest {
 
     @Parameterized.Parameters
     public static Object[][] getData() {
-        return new Object[][]{{"", TestData.generateRandomString(10), TestData.generateRandomString(10)}, {TestData.generateRandomString(10), "", TestData.generateRandomString(10)},};
+        return new Object[][]{
+                {"", TestData.generateRandomString(10), TestData.generateRandomString(10)},
+                {TestData.generateRandomString(10), "", TestData.generateRandomString(10)},
+        };
     }
 
     @Test
