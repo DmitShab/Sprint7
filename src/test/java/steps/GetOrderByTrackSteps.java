@@ -1,9 +1,9 @@
 package steps;
 
-import apiRequests.GetApiGetOrder;
+import apirequests.GetApiGetOrder;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import testData.TestData;
+import testdata.TestData;
 
 import java.util.HashMap;
 import java.util.Map;

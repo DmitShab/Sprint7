@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import steps.PostCreateCourierSteps;
-import testData.TestData;
+import testdata.TestData;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 

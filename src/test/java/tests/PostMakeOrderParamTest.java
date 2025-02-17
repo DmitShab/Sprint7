@@ -1,12 +1,12 @@
 package tests;
 
-import apiRequests.PostApiMakeOrder;
+import apirequests.PostApiMakeOrder;
 import io.restassured.response.Response;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import pojo.PostMakeOrderRequestPOJO;
-import testData.TestData;
+import testdata.TestData;
 
 import java.util.List;
 

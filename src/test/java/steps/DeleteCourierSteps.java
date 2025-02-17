@@ -1,10 +1,10 @@
 package steps;
 
-import apiRequests.DeleteApiCourier;
+import apirequests.DeleteApiCourier;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import pojo.PostLoginResponsePOJO;
-import testData.TestData;
+import testdata.TestData;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 

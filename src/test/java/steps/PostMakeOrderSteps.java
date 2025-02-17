@@ -1,10 +1,10 @@
 package steps;
 
-import apiRequests.PostApiMakeOrder;
+import apirequests.PostApiMakeOrder;
 import io.qameta.allure.Step;
 import pojo.GetMakeOrderResponsePOJO;
 import pojo.PostMakeOrderRequestPOJO;
-import testData.TestData;
+import testdata.TestData;
 
 import java.util.List;
 

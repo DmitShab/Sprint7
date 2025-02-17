@@ -1,10 +1,10 @@
 package steps;
 
-import apiRequests.PutApiAcceptOrder;
+import apirequests.PutApiAcceptOrder;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import pojo.PostLoginResponsePOJO;
-import testData.TestData;
+import testdata.TestData;
 
 import java.util.HashMap;
 import java.util.Map;

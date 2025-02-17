@@ -1,10 +1,10 @@
 package steps;
 
-import apiRequests.PostApiCreate;
+import apirequests.PostApiCreate;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import pojo.*;
-import testData.TestData;
+import testdata.TestData;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 

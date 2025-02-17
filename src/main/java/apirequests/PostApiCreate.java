@@ -1,6 +1,6 @@
-package apiRequests;
+package apirequests;
 
-import baseHttpClient.BaseHttpClient;
+import basehttpclient.BaseHttpClient;
 import io.restassured.response.Response;
 import pojo.PostCreatePOJO;
 

@@ -1,4 +1,4 @@
-package baseHttpClient;
+package basehttpclient;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.ErrorLoggingFilter;
@@ -6,7 +6,7 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
-import URL.*;
+import url.*;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
